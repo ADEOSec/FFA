@@ -4,6 +4,7 @@
 bir CTF sistemine sahip olabilirsiniz :)
 * Sunucunuza ssh ile bağlanın ve altta verilen adımları sırası ile yapınız.
 * Vi ile giriş yaptıktan sonra :set mouse=r yazıp enter'layınız. Ardından i'ye basınız. Ve ilgili dosyanın dosyasının içinde ki komutları mouse sağ tuşa tıklayarak yapıştırınız. Ardından esc'ye basıp :wq yazıp enterlayınız.
+* Dosyalar: <a href="https://gist.github.com/MuhammetDilmac/fb9d6eee47c72c6efa04d12f2f2fedc4#file-server_prepare-sh" target="_blank" rel="noreferrer">server_prepare.sh</a> | <a href="https://gist.github.com/MuhammetDilmac/fb9d6eee47c72c6efa04d12f2f2fedc4#file-deploy_user-sh" target="_blank" rel="noreferrer">deploy_user.sh</a>
 ```bash
   sudo su root
   cd
