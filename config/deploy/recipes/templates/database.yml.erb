@@ -1,0 +1,22 @@
+development: &default
+  adapter: postgresql
+  username: <%= fetch(:postgresql_user) %>
+  password: <%= fetch(:postgresql_password) %>
+  encoding: utf8
+  min_messages: warning
+  pool: 5
+  timeout: 5000
+  host: <%= fetch(:postgresql_host) %>
+  port: <%= fetch(:postgresql_port) %>
+
+test:
+  <<: *default
+  database: <%= fetch(:postgresql_database) %>_test
+
+production:
+  <<: *default
+  database: <%= fetch(:postgresql_database) %>_production
+
+staging:
+  <<: *default
+  database: <%= fetch(:postgresql_database) %>_staging

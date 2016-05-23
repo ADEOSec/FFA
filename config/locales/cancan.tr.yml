@@ -1,0 +1,3 @@
+tr:
+  unauthorized:
+    default: 'Bu sayfaya erişim yetkiniz bulunmamaktadır.'

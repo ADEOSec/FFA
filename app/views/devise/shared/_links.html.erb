@@ -1,0 +1,46 @@
+<% unless user_signed_in? %>
+<div class="hidden-xs">
+  <%- if controller_name != 'sessions' %>
+      <%= link_to 'Giriş Yap', new_session_path(resource_name), class: 'btn btn-primary', role: 'button' %>
+  <% end -%>
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to 'Kayıt Ol', new_registration_path(resource_name), class: 'btn btn-primary', role: 'button' %>
+  <% end -%>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to 'Parolamı Unuttum', new_password_path(resource_name), class: 'btn btn-primary', role: 'button' %>
+  <% end -%>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to 'Aktivasyon Maili Gelmedi', new_confirmation_path(resource_name), class: 'btn btn-primary', role: 'button' %>
+  <% end -%>
+
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+      <%= link_to 'Hesap Kurtarma Maili Gelmedi', new_unlock_path(resource_name), class: 'btn btn-primary', role: 'button' %>
+  <% end -%>
+</div>
+
+<div class="visible-xs-block shared-link">
+  <%- if controller_name != 'sessions' %>
+      <%= link_to 'Giriş Yap', new_session_path(resource_name), class: 'btn btn-block btn-primary', role: 'button' %>
+  <% end -%>
+
+
+  <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to 'Kayıt Ol', new_registration_path(resource_name), class: 'btn btn-block btn-primary', role: 'button' %>
+  <% end -%>
+
+  <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to 'Şifremi Unuttum', new_password_path(resource_name), class: 'btn btn-block btn-primary', role: 'button' %>
+  <% end -%>
+
+  <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+      <%= link_to 'Aktivasyon Maili Gelmedi', new_confirmation_path(resource_name), class: 'btn btn-block btn-primary', role: 'button' %>
+  <% end -%>
+
+  <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+      <%= link_to 'Hesap Kurtarma Maili Gelmedi', new_unlock_path(resource_name), class: 'btn btn-block btn-primary', role: 'button' %>
+  <% end -%>
+</div>
+<% end %>

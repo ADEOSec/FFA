@@ -1,0 +1,54 @@
+<div class="page-header">
+  <h1>İstatistikler</h1>
+</div>
+
+<div id="container">
+  <% if @categories.nil? %>
+      <div class="alert alert-danger" role="alert"><strong>Hata</strong> Çözülmüş soru bulunmamaktadır!</div>
+  <% else %>
+      <ul class="nav nav-tabs" role="tablist">
+        <% @categories.each_with_index do |category, index| %>
+            <li role="presentation" class="<%= user_signed_in? ? current_user.group.name == category[0] ? 'active' : '' : index == 0 ? 'active' : '' %>">
+              <a href="#chart-<%= index %>" aria-controls="chart-<%= index %>" role="tab" data-toggle="tab"><%= category[0] %></a>
+            </li>
+        <% end %>
+      </ul>
+      <div class="tab-content">
+        <% @categories.each_with_index do |category, index| %>
+            <div role="tabpanel" class="tab-pane <%= user_signed_in? ? current_user.group.name == category[0] ? 'active' : '' : index == 0 ? 'active' : '' %>" id="chart-<%= index %>">
+              <canvas id="<%= category[0].downcase.gsub(/[^\w]/, '') %>"></canvas>
+              <div class="static-page-table">
+                <table class="table table-striped">
+                  <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>User Name</th>
+                    <th>Score</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <% sorted_array = category[1].sort_by { |h| h[:data].last }.reverse!
+                     sorted_array.each_with_index do |user, index| %>
+                      <tr>
+                        <th scope="row"><%= index + 1 %></th>
+                        <td><%= user[:label] %></td>
+                        <td><%= user[:data].last %></td>
+                      </tr>
+                  <% end %>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+        <% end %>
+      </div>
+  <% end %>
+</div>
+<% unless @categories.nil? %>
+    <% content_for :custom_js do %>
+        <%= javascript_include_tag 'Chart.min' %>
+        <%= javascript_tag 'function setter(a,b){a.attr("width",b.width());400>b.width()?a.attr("height",function(){return.2*b.width()}):a.attr("height",300)};' %>
+        <% @categories.each_with_index do |category, index| %>
+            <%= javascript_tag "$(document).ready(function() {var canvas = $('##{category[0].downcase.gsub(/[^\w]/, '')}'), container=$('#container'); $.when( setter(canvas, container) ).done(function(){ var datas = {labels: #{@date_groups},datasets: #{category[1].to_json}};var myChart = new Chart(canvas,{type:'line',data:datas,options:{scales:{yAxes:[{ticks:{beginAtZero:true}}]}}});});});" if category[1].length > 0 %>
+        <% end %>
+    <% end %>
+<% end %>

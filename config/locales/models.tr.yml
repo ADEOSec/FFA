@@ -1,0 +1,26 @@
+tr:
+  activerecord:
+    models:
+      admin_user: Yönetici
+      comment: Yorum
+    attributes:
+      admin_user:
+        name: Ad Soyad
+        email: Mail
+        password: Parola
+        user_group_id: Kullanıcı Grubu
+        password_confirmation: Parola Doğrulama
+        encrypted_password: Şifrelenmiş Parola
+        reset_password_token: Parola Sıfırlama Kodu
+        reset_password_sent_at: Parola Sıfırlama Talep Tarihi
+        remember_created_at: Beni Hatırla Tarihi
+        sign_in_count: Giriş Sayısı
+        current_sign_in_at: Aktif Giriş Zamanı
+        last_sign_in_at: Son Giriş Zamanı
+        current_sign_in_ip: Aktif IP
+        last_sign_in_ip: Son IP
+        failed_attempts: Hatalı Giriş Denemesi Sayısı
+        unlock_token: Hesap Kurtarma Kodu
+        locked_at: Hesap Kitlenme Tarihi
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi

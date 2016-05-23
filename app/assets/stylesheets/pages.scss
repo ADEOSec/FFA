@@ -1,0 +1,137 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require font-awesome
+ *= require pnotify.custom.min
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px;
+
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}
+
+form{
+  margin-bottom: 15px
+}
+
+/* Questions Page CSS */
+section{
+  article{
+    padding: 15px 10px;
+    &:nth-child(odd){
+      background: #eee;
+    }
+
+    button{
+      margin-left: 15px;
+      &:first-child{
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+/* Modal CSS */
+
+#modal-score{
+  display: inline-block;
+  color: green;
+  margin-right: 15px;
+  &:before{
+    content: '{ ';
+  }
+  &:after{
+    content: ' }';
+  }
+}
+
+#modal-content{
+  margin-bottom: 10px;
+  p{
+    word-wrap: break-word;
+  }
+}
+
+#modal-file, #modal-answer{
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+#modal-file{
+  h5{
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+#modal-title{
+  display: inline-block;
+}
+
+.static-page-table{
+  margin-top: 50px;
+}
+
+.tab-pane{
+  padding-top: 20px;
+}
+
+.highcharts-container{
+  width: 100% !important;
+  svg{
+    width: 100% !important;
+  }
+}
+
+.logo{
+  margin: 0 auto;
+}
+

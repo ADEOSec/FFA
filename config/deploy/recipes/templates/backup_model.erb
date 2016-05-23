@@ -1,0 +1,57 @@
+Backup::Model.new(:<%= fetch(:application) %>, '<%= fetch(:application)  %> - <% fetch(:rails_env) %> backup') do
+    ##
+    # Split [Splitter]
+    #
+    # Split the backup file in to chunks of 250 megabytes
+    # if the backup file size exceeds 250 megabytes
+    #
+    split_into_chunks_of 500
+
+    ##
+    # PostgreSQL [Database]
+    #
+    database PostgreSQL do |db|
+        # To dump all databases, set `db.name = :all` (or leave blank)
+        db.name               = "<%= "#{fetch(:postgresql_database)}_#{fetch(:rails_env)}" %>"
+        db.username           = "<%= fetch(:postgresql_user) %>"
+        db.password           = "<%= fetch(:postgresql_password) %>"
+        db.host               = "<%= fetch(:postgresql_host) %>"
+        db.port               = "<%= fetch(:postgresql_port) %>"
+    end
+
+    ##
+    # Local (Copy) [Storage]
+    #
+    store_with Local do |local|
+    local.path       = "~/backups/"
+    local.keep       = 5
+    end
+
+    ##
+    # Gzip [Compressor]
+    #
+    compress_with Gzip
+
+    ##
+    # Hipchat [Notifier]
+    #
+<% if fetch(:use_hipchat).casecmp('y') != 0 %>
+=begin
+<% end %>
+    notify_by Hipchat do |hipchat|
+        hipchat.on_success      = true
+        hipchat.on_warning      = true
+        hipchat.on_failure      = true
+        hipchat.token           = "<%= fetch(:hipchat_token) %>"
+        # get first 15 character of application, there is an error after 15 length
+        hipchat.from            = "<%= fetch(:application)[0..14] %>"
+        hipchat.rooms_notified  = ["backup"]
+        hipchat.success_color   = "green"
+        hipchat.warning_color   = "yellow"
+        hipchat.failure_color   = "red"
+    end
+<%  if fetch(:use_hipchat).casecmp('y') != 0 %>
+=end
+<% end %>
+
+end

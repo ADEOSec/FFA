@@ -1,0 +1,13 @@
+secret_key_base:
+server_ip:
+domain_name:
+repo_url:
+mail_address:
+smtp_server:
+smtp_port:
+smtp_domain:
+smtp_auth:
+smtp_user:
+smtp_pass:
+smtp_tls:
+

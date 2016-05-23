@@ -1,0 +1,16 @@
+<div class="page-header">
+  <h2>Resend confirmation instructions</h2>
+</div>
+
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), autocomplete: 'off', class: 'form-control' %>
+  </div>
+
+    <%= f.button :submit, type: 'submit', class: 'btn btn-success btn-block btn-lg' %>
+<% end %>
+
+<%= render 'devise/shared/links' %>
