@@ -9,11 +9,10 @@ class QuestionController < ApplicationController
 
   def index
     @categories = Category.where(group_id: current_user.group_id)
-    user = User.find(current_user.id)
-    answer_strings = user.answer_strings.where(is_correct: true).pluck(:question_id)
-    answer_texts = user.answer_texts.pluck(:question_id)
+    answer_strings = current_user.answer_strings.where(is_correct: true).pluck(:question_id)
+    answer_texts = current_user.answer_texts.pluck(:question_id)
     @correct_answers = answer_strings + answer_texts
-    wrong_answers = user.answer_strings.where(is_correct: false)
+    wrong_answers = current_user.answer_strings.where(is_correct: false)
     wrong_answer_group = wrong_answers.group_by{ |answer| answer.question_id }
     @disabled = wrong_answer_group.map{  |answer| answer[0] if answer[1].length == answer[1].last.question.incorrect_limit }
     @disabled = @disabled.compact
