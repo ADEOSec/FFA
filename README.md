@@ -3,17 +3,17 @@
 * Ubuntu 14.04 sunucuya kurulum için hazırladığımız bash scriptlerini belirtilen şekilde sunucunuzda çalıştırırsanız hızlıca 
 bir CTF sistemine sahip olabilirsiniz :)
 * Sunucunuza ssh ile bağlanın ve altta verilen adımları sırası ile yapınız.
-
+* Vi ile giriş yaptıktan sonra :set mouse=r yazıp enter'layınız. Ardından i'ye basınız. Ve deploy_user.sh dosyasının içinde ki komutları mouse sağ tuşa tıklayarak yapıştırınız. Ardından esc'ye basıp :wq yazıp enterlayınız.
 ```bash
   sudo su root
   cd
-  vi server_prepare.sh (vi ile giriş yaptıktan sonra :set mouse=r yazıp enter'layınız. Ardından i'ye basınız. Ve server_prepare.sh dosyasının içinde ki komutları mouse sağ tuşa tıklayarak yapıştırınız. Ardından esc'ye basıp :wq yazıp enterlayınız.)
+  vi server_prepare.sh
   chmod +x server_prepare.sh
   ./server_prepare.sh
 
   su deploy
   cd
-  vi deploy_user.sh (vi ile giriş yaptıktan sonra :set mouse=r yazıp enter'layınız. Ardından i'ye basınız. Ve deploy_user.sh dosyasının içinde ki komutları mouse sağ tuşa tıklayarak yapıştırınız. Ardından esc'ye basıp :wq yazıp enterlayınız.)
+  vi deploy_user.sh
   chmod +x deploy_user.sh
   ./deploy_user.sh
 ````
