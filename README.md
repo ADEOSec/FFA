@@ -1,4 +1,5 @@
 # FFA
+Free-For-All 2016 yılında ADEO IWS programı için Rails Web Framework'ü ile hazırlanmış, GNU/GPL v3.0 lisansına sahip bir CTF (Capture-the-Flag) platformu projesidir.
 
 * Ubuntu 14.04 sunucuya kurulum için hazırladığımız bash scriptlerini belirtilen şekilde sunucunuzda çalıştırırsanız hızlıca 
 bir CTF sistemine sahip olabilirsiniz :)
