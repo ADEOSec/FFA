@@ -21,6 +21,7 @@ gem 'font-awesome-rails'
 gem 'devise_security_extension'
 gem 'capistrano', '~> 3.4.0'
 gem 'unicorn', '~> 4.9.0'
+gem 'active_admin_theme'
 
 group :development do
   gem 'web-console', '~> 2.0'
