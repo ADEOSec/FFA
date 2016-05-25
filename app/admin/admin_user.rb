@@ -1,6 +1,11 @@
 ActiveAdmin.register AdminUser do
-  permit_params :email, :password, :password_confirmation, :user_name,
-                admin_user_group_attributes: [:id, :_destroy, :group_id]
+  permit_params do
+    params = [:email, :password, :password_confirmation, :user_name]
+    params.push admin_user_group_attributes: [:id, :_destroy, :group_id]
+    params.push :is_super if current_admin_user.is_super?
+    params
+  end
+
 
   index do
     selectable_column
