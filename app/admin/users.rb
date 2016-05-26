@@ -55,6 +55,8 @@ ActiveAdmin.register User do
       row :confirmed_at if user.confirmation_token
       row :admin_user_id if user.admin_user_id
     end
+
+    active_admin_comments
   end
 
   filter :user_name
