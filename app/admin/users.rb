@@ -33,8 +33,32 @@ ActiveAdmin.register User do
     f.actions
   end
 
+  show do |user|
+    attributes_table do
+      row :user_name
+      row :email
+      row :group
+      row :approved
+      row :remember_created_at if user.remember_created_at
+      row :reset_password_token if user.reset_password_token
+      row :reset_password_sent_at if user.reset_password_sent_at
+      row :sign_in_count
+      row :last_sign_in_ip
+      row :current_sign_in_ip
+      row :last_sign_in_at
+      row :failed_attempts if user.failed_attempts > 0
+      row :locked_at if user.locked_at
+      row :unlock_token if user.unlock_token
+      row :current_sign_in_at
+      row :confirmation_token unless user.confirmation_token
+      row :confirmation_sent_at unless user.confirmation_token
+      row :confirmed_at if user.confirmation_token
+      row :admin_user_id if user.admin_user_id
+    end
+  end
+
   filter :user_name
-  filter :group_id
+  filter :group
   filter :email
   filter :approved
 end
