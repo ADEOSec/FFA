@@ -2,6 +2,17 @@ tr:
   activerecord:
     models:
       admin_user: Yönetici
+      admin_user_group: Grup
+      answer_string: Kesin Cevaplar
+      answer_text: Yorum Cevapları
+      category: Kategoriler
+      group: Gruplar
+      log: Loglar
+      question: Sorular
+      question_file: Ekler
+      question_key: Cevaplar
+      score: Puanlar
+      user: Kullanıcılar
       comment: Yorum
     attributes:
       admin_user:
@@ -24,3 +35,95 @@ tr:
         locked_at: Hesap Kitlenme Tarihi
         created_at: Oluşturulma Tarihi
         updated_at: Son Düzenlenme Tarihi
+      admin_user_group:
+        admin_user_id: Yönetici
+        group_id: Grup
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+      answer_string:
+        question_id: Soru
+        user_id: Kullanıcı
+        value: Cevap
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+        is_correct: Doğru mu?
+      answer_text:
+        question_id: Soru
+        user_id: Kullanıcı
+        value: Cevap
+        score: Verilen Puan
+        admin_user_id: Son Düzenleyen Yönetici
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+        is_correct: Doğru mu?
+      category:
+        group_id: Grup
+        name: Başlık
+        admin_user_id: Son Düzenleyen Yönetici
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+      group:
+        name: Başlık
+        admin_user_id: Son Düzenleyen Yönetici
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+      log:
+        activity: İşlem
+        user_id: Kullanıcı
+        user_agent: User Agent
+        ip: IP Adresi
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+      question:
+        category_id: Kategori
+        title: Başlık
+        content: İçerik
+        score: Puan
+        admin_user_id: Son Düzenleyen Yönetici
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+        question_type: Soru Tipi
+        incorrect_limit: Deneme Limiti
+      question_file:
+        question_id: Soru
+        file: Dosya
+        admin_user_id: Son Düzenleyen Yönetici
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+      question_key:
+        question_id: Soru
+        value: Cevap
+        admin_user_id: Son Düzenleyen Yönetici
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+      score:
+        question_id: Soru
+        user_id: Kullanıcı
+        score: Puan
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+      user:
+        confirmation_token: Onaylama Kodu
+        confirmed_at: Onaylanma Tarihi
+        confirmation_sent_at: Onay Kodu Gönderilme Tarihi
+        email: Mail
+        user_name: Kullanıcı Adı
+        password_confirmation: Parola Doğrulama
+        encrypted_password: Şifrelenmiş Parola
+        reset_password_token: Parola Sıfırlama Kodu
+        reset_password_sent_at: Parola Sıfırlama Talep Tarihi
+        remember_created_at: Beni Hatırla Tarihi
+        sign_in_count: Giriş Sayısı
+        current_sign_in_at: Aktif Giriş Zamanı
+        last_sign_in_at: Son Giriş Zamanı
+        current_sign_in_ip: Aktif IP
+        last_sign_in_ip: Son IP
+        failed_attempts: Hatalı Giriş Denemesi Sayısı
+        unlock_token: Hesap Kurtarma Kodu
+        locked_at: Hesap Kitlenme Tarihi
+        created_at: Oluşturulma Tarihi
+        updated_at: Son Düzenlenme Tarihi
+        approved: Onaylandı mı?
+        group: Grup
+        group_id: Grup
+        admin_user_id: Son Düzenleyen Yönetici
